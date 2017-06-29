@@ -1,0 +1,23 @@
+{
+    "name": "bonsi/laravel-tracetag",
+    "description": "Trace a request through your application using a tag",
+    "type": "library",
+    "require": {
+        "php": ">=7.0",
+        "laravel/framework": "^5.4",
+        "ramsey/uuid": "^3.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bonsi\\TraceTag\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivo Bons",
+            "email": "ivo.bons@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
