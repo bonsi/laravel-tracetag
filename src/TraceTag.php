@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Bonsi\TraceTag;
 
 use Bonsi\TraceTag\Generators\Generator;
@@ -11,7 +12,7 @@ class TraceTag
     /**
      * TraceTag constructor.
      *
-     * @param \App\TraceTag\Generators\Generator $generator
+     * @param \Bonsi\TraceTag\Generators\Generator $generator
      */
     public function __construct(Generator $generator)
     {
@@ -25,10 +26,21 @@ class TraceTag
      */
     public function tag() : string
     {
-        if(! $this->tag) {
-            $this->tag = $this->generateTag();
+        if(! $this->tag ) {
+            $this->setTag($this->generateTag());
         }
+
         return $this->tag;
+    }
+
+    /**
+     * Set the tag.
+     *
+     * @param $tag
+     */
+    public function setTag($tag)
+    {
+        $this->tag = $tag;
     }
 
     /**
