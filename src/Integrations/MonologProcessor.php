@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Bonsi\TraceTag\Integrations;
 
 use Bonsi\TraceTag\TraceTag;
@@ -6,7 +7,7 @@ use Bonsi\TraceTag\TraceTag;
 class MonologProcessor
 {
 
-    public function __invoke(array $record)
+    public function __invoke(array $record) : array
     {
 //        $record['extra']['uid'] = $this->uid;
         $record['extra']['TraceTag'] = $this->getTraceTag();
@@ -19,6 +20,6 @@ class MonologProcessor
      */
     public function getTraceTag()
     {
-        return app(TraceTag::class)->tag();
+        return app()->make(TraceTag::class)->tag();
     }
 }
