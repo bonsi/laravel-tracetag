@@ -14,6 +14,11 @@ Mind you, this is still very much a work in progress!
 - Uuid4: 857fac7b-1a0a-491b-9235-5214e6819351
 
 ### Install
+* Since the package is still in development, make sure you add the following to your ```composer.json```:
+
+		    "minimum-stability": "dev",
+
+
 * Add the package to your composer.json
 
 		composer require bonsi/laravel-tracetag
