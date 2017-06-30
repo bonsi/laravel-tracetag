@@ -14,13 +14,13 @@ Mind you, this is still very much a work in progress!
 - Uuid4: 857fac7b-1a0a-491b-9235-5214e6819351
 
 ### Install
-* Add the package to your composer.json:
+* Add the package to your composer.json
 
 		composer require bonsi/laravel-tracetag
-* Run composer update:
+* Update composer
 
 		composer update
-* Add the ServiceProvider to your app/config.php:
+* Add the ServiceProvider to your app/config.php
 
 		'providers' => [
 			...
@@ -30,19 +30,26 @@ Mind you, this is still very much a work in progress!
 			Bonsi\TraceTag\TraceTagServiceProvider::class,
 			...
 
-* Some of the generators require an extra composer package:
+* Some of the generators require an extra composer package
 	* RandomInt: _no extra package required_
 	* Uuid4:
 	
 			composer require ramsey/uuid@~3.0
 			
+* Publish the configuration file
+	Get your own customizable config file if you want to change a setting:
+
+			php artisan vendor:publish --provider="Bonsi\TraceTag\TraceTagServiceProvider"
+			
+	This will copy a customizable config file to ```config/tracetag.php```.
 
 ### Concepts
 - **Generator**: A class responsible for generating a TraceTag. Included: Uuid4 & RandomInt.
 - **Integration**: A class responsible for injecting the TraceTag into various other parts of your application. Included: a Monolog processor to add the TraceTag to your logs.
 
 ### Todo's:
-- [ ] Add middleware for adding a TraceTag as a header
+- [X] Add middleware for adding a TraceTag as a header
+- [X] Add a facade
 - [ ] Add tests
 - [ ] Add more generators
 - [ ] Add more integrations
@@ -52,10 +59,4 @@ Mind you, this is still very much a work in progress!
 
 #### Monolog
 
-To add the TraceTag to your monolog logger, add the following to bootstrap/app.php:
-
-	$app->configureMonologUsing(function ($monolog) {
-		$monolog->pushProcessor(new Bonsi\TraceTag\Integrations\MonologProcessor);
-	});
-
-
+Adding the TraceTag to your monolog logger is already enabled by default. The TraceTag will be added to monolog's 'extra' field.
