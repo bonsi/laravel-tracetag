@@ -4,8 +4,7 @@
     "type": "library",
     "require": {
         "php": ">=7.0",
-        "laravel/framework": "^5.4",
-        "ramsey/uuid": "^3.6"
+        "laravel/framework": "^5.4"
     },
     "suggest": {
         "ramsey/uuid": "Formerly rhumsaa/uuid. A PHP 5.4+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID)."
