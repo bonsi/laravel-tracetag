@@ -4,11 +4,21 @@ namespace Bonsi\TraceTag\Generators;
 
 use Ramsey\Uuid\Uuid;
 
+/**
+ * Class Uuid4
+ *
+ * @package Bonsi\TraceTag\Generators
+ */
 class Uuid4 implements Generator
 {
+
+    /**
+     * Generate a version 4 (random) UUID object.
+     *
+     * @return string
+     */
     public function generate() : string
     {
-        // Generate a version 4 (random) UUID object
         return Uuid::uuid4()->toString();
     }
 }

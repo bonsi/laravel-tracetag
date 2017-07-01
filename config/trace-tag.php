@@ -7,17 +7,16 @@ return [
     | Laravel TraceTag
     |--------------------------------------------------------------------------
     */
-    //    'enabled' => true,
 
     /*
-    |
-    | The generator will default to Bonsi\TraceTag\Generators\RandomInt::class.
-    |
+    | The configured generator for new tags.
     */
     'generator' => Bonsi\TraceTag\Generators\RandomInt::class,
 //    'generator' => Bonsi\TraceTag\Generators\Uuid4::class,
 
-
+    /*
+    | The middleware used for getting & setting TraceTags.
+    */
     'middleware' => [
         'enabled' => false,
         /*

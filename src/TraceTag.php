@@ -4,6 +4,11 @@ namespace Bonsi\TraceTag;
 
 use Bonsi\TraceTag\Generators\Generator;
 
+/**
+ * Class TraceTag
+ *
+ * @package Bonsi\TraceTag
+ */
 class TraceTag
 {
     protected $tag = null;

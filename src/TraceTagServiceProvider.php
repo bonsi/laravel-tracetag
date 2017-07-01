@@ -11,6 +11,11 @@ use \Illuminate\Support\ServiceProvider;
 use Bonsi\TraceTag\Generators\RandomInt;
 use Bonsi\TraceTag\Middleware\TraceTagMiddleware;
 
+/**
+ * Class TraceTagServiceProvider
+ *
+ * @package Bonsi\TraceTag
+ */
 class TraceTagServiceProvider extends ServiceProvider
 {
 
@@ -21,10 +26,6 @@ class TraceTagServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        if(!$this->app->config->get('trace-tag.enabled', false)) {
-//            return;
-//        }
-
         $source = realpath(__DIR__ . '/../config/trace-tag.php');
         $this->publishes([$source => config_path('trace-tag.php')]);
         $this->mergeConfigFrom($source, 'trace-tag');
@@ -42,10 +43,6 @@ class TraceTagServiceProvider extends ServiceProvider
      */
     public function register()
     {
-//        if(!$this->app->config->get('trace-tag.enabled', false)) {
-//            return;
-//        }
-
         Log::getMonolog()->pushProcessor(new \Bonsi\TraceTag\Integrations\MonologProcessor);
 
         $this->app->singleton('tracetag', function(Container $app) {

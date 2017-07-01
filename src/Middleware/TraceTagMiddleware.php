@@ -5,6 +5,11 @@ namespace Bonsi\TraceTag\Middleware;
 use Closure;
 use Bonsi\TraceTag\TraceTag;
 
+/*
+ * TraceTag Middleware
+ *
+ * @package Bonsi\TraceTag
+ */
 class TraceTagMiddleware
 {
     protected $traceTag;
