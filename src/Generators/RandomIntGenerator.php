@@ -3,11 +3,11 @@
 namespace Bonsi\TraceTag\Generators;
 
 /**
- * Class RandomInt
+ * Class RandomIntGenerator
  *
  * @package Bonsi\TraceTag\Generators
  */
-class RandomInt implements Generator
+class RandomIntGenerator implements Generator
 {
 
     /**

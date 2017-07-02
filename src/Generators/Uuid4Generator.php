@@ -5,11 +5,11 @@ namespace Bonsi\TraceTag\Generators;
 use Ramsey\Uuid\Uuid;
 
 /**
- * Class Uuid4
+ * Class Uuid4Generator
  *
  * @package Bonsi\TraceTag\Generators
  */
-class Uuid4 implements Generator
+class Uuid4Generator implements Generator
 {
 
     /**
