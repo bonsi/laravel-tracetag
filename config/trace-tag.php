@@ -11,8 +11,8 @@ return [
     /*
     | The configured generator for new tags.
     */
-    'generator' => Bonsi\TraceTag\Generators\RandomInt::class,
-//    'generator' => Bonsi\TraceTag\Generators\Uuid4::class,
+    'generator' => Bonsi\TraceTag\Generators\RandomIntGenerator::class,
+//    'generator' => Bonsi\TraceTag\Generators\Uuid4Generator::class,
 
     /*
     | The middleware used for getting & setting TraceTags.
@@ -27,7 +27,7 @@ return [
         | value from the header will always take precedence.
         |
         */
-        'headerName' => 'X-Trace-Tag',
-        'inputName' => '_tracetag',
+        'header-name' => 'X-Trace-Tag',
+        'input-name' => '_tracetag',
     ]
 ];
