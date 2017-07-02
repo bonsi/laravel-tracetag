@@ -9,6 +9,8 @@ A monolog processor to add the TraceTag to your logs is included out of the box.
 
 Mind you, this is still very much a work in progress!
 
+Only tested with Laravel 5.4 currently.
+
 ### Use cases
 
 * **Ability to aggregate all logs belonging to a specific request**
@@ -68,11 +70,16 @@ You can also set the TraceTag from the outside to, for example, provide an uniqu
 			Bonsi\TraceTag\TraceTagServiceProvider::class,
 			...
 
-* Some of the generators require an extra composer package
+* Some of the generators require an additional composer package
   * RandomInt: _no extra package required_
-  * Uuid4:
+  * Uuid4: ~~ramsey/uuid@~3.0~~ This dependency is now defined as required. Although it's 
+  only required if one were to use the Uuid4Generator, adding the dependency as an "optional" 
+  dependency in for example composer's "suggests" list doesn't feel right. The way to go 
+  here would be to extract the generators in this package to their own composer package so that the
+  dependencies per generator could be specified in their own composer.json. But, since the generators
+  are barely 10 lines of code, this would be an overkill at the moment in my opinion.
   
-		composer require ramsey/uuid@~3.0
+  
 			
 * Publish the configuration file
 	
