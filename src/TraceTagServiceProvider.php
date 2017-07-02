@@ -4,11 +4,10 @@ namespace Bonsi\TraceTag;
 
 use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Log;
-use Bonsi\TraceTag\Generators\Uuid4;
 use Illuminate\Contracts\Http\Kernel;
-use Illuminate\Foundation\Application;
 use \Illuminate\Support\ServiceProvider;
-use Bonsi\TraceTag\Generators\RandomInt;
+use Bonsi\TraceTag\Generators\Uuid4Generator;
+use Bonsi\TraceTag\Generators\RandomIntGenerator;
 use Bonsi\TraceTag\Middleware\TraceTagMiddleware;
 
 /**
@@ -46,7 +45,7 @@ class TraceTagServiceProvider extends ServiceProvider
         Log::getMonolog()->pushProcessor(new \Bonsi\TraceTag\Integrations\MonologProcessor);
 
         $this->app->singleton('tracetag', function(Container $app) {
-            $generatorClass = $app->config->get('tracetag.generator', RandomInt::class);
+            $generatorClass = $app->config->get('tracetag.generator', RandomIntGenerator::class);
             return new TraceTag(new $generatorClass);
         });
 
