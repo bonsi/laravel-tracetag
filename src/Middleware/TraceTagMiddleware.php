@@ -33,8 +33,8 @@ class TraceTagMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $headerName = config('tracetag.middleware.headerName', 'X-Trace-Tag');
-        $inputName = config('tracetag.middleware.inputName', '_tracetag');
+        $headerName = config('tracetag.middleware.header-name', 'X-Trace-Tag');
+        $inputName = config('tracetag.middleware.input-name', '_tracetag');
 
         if($request->has($inputName))
         {
@@ -45,14 +45,11 @@ class TraceTagMiddleware
             $this->traceTag->setTag($request->header($headerName));
         }
 
-        $tag = $this->traceTag->tag();
-//        $request->merge(['X-Trace-Tag' => $tag]);
-
         $response = $next($request);
 
         // Do note that echo'ing out other content than a view (like dd, dump, echo) will result in the
         // header not being added because of content already sent.
-        $response->header($headerName, $tag);
+        $response->header($headerName, $this->traceTag->tag());
         return $response;
    }
 }
