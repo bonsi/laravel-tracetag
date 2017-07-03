@@ -33,8 +33,8 @@ class TraceTagMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $headerName = config('tracetag.middleware.header-name', 'X-Trace-Tag');
-        $inputName = config('tracetag.middleware.input-name', '_tracetag');
+        $headerName = config('trace-tag.middleware.header-name', 'X-Trace-Tag');
+        $inputName = config('trace-tag.middleware.input-name', '_tracetag');
 
         if($request->has($inputName))
         {
