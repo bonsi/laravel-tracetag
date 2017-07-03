@@ -1,4 +1,5 @@
 # Laravel TraceTag
+[![Build Status](https://travis-ci.org/bonsi/laravel-tracetag.svg?branch=master)](https://travis-ci.org/bonsi/laravel-tracetag)
 ---
 
 Generate an unique tag or identifier (aka TraceTag) for an application request to be tracked through your application.
